@@ -1,0 +1,948 @@
+<!DOCTYPE html>
+<meta Content-Type: text/html; charset=utf-8>
+ 
+<html>
+<style type="text/css">
+
+input:focus, textarea:focus, select:focus, button:focus {
+	outline: none;
+}
+
+td {
+	text-align: center;
+}
+.butXBee {
+	border: none;
+	height: 28px;
+	width: 100px;
+	border-radius: 16px;
+	font-family: sans-serif;
+	text-align: center;
+	background-color: #e6e6e6;
+	color: #333333;
+	cursor: pointer;
+}
+.butXBeeTitel{
+	height: 15px;
+	background-color: #b3ffb3;
+	font-size: 10pt;
+	cursor: none;
+}
+.butXBeeProg{
+	height: 20px;
+	color: #e6e6e6;
+	background-color: #9c4be7;
+}
+
+.butSys {
+	background-color: #ff3385;
+}
+
+.butMarkise{
+	border: none;
+	height: 28px;
+	width: 100px;
+	border-radius: 16px;
+	text-align: center;
+	background-color: #e6ccff;
+	color: black;
+	cursor: pointer;
+}
+.butMarkise1{
+	height: 15px;
+	background-color: #f3e6ff;
+	color: black;
+	font-family: sans-serif;
+	cursor: none;
+}
+
+.butISM{
+	border: none;
+	height: 28px;
+	width: 110px;
+	border-radius: 16px;
+	text-align: center;
+	background-color: #9999ff;
+	color: black;
+	cursor: pointer;
+}
+.butISM1{
+	height: 15px;
+	background-color: #ccccff;
+	color: black;
+	font-family: sans-serif;
+	cursor: none;
+}
+
+.Status {
+	font-size: 8pt;
+	font-family: sans-serif;
+	text-size-adjust: none;
+}
+
+.StatusConn{
+	font-weight: bold;
+	text-size-adjust: none;
+}
+
+#DIVmarkise {
+	display: none;
+}
+#DIVism {
+	display: none;
+}
+
+</style>
+
+<body>
+<h1 id="men_Titel">Control MEN rasp</h1>
+<p>
+<table>
+  <tr>
+	<td id="men_XBee_1" class="butXBee butXBeeTitel">XBee 1</td>
+  </tr>
+  <tr>
+    <td><button id="men_XBee_1_D0" onclick="men_XBee_1_D0()" class="butXBee">D0</button></td>
+    <td><button id="men_XBee_1_D3" onclick="men_XBee_1_D3()" class="butXBee">D3</button></td>
+    <td><button id="men_XBee_1_D6" onclick="men_XBee_1_D6()" class="butXBee">D6</button></td>
+    <td><button id="men_XBee_1_P1" onclick="men_XBee_1_P1()" class="butXBee">D11</button></td>
+  </tr>
+  <tr>
+    <td><button id="men_XBee_1_D1" onclick="men_XBee_1_D1()" class="butXBee">D1</button></td>
+    <td><button id="men_XBee_1_D4" onclick="men_XBee_1_D4()" class="butXBee">D4</button></td>
+    <td><button id="men_XBee_1_D7" onclick="men_XBee_1_D7()" class="butXBee">D7</button></td>
+    <td><button id="men_XBee_1_P2" onclick="men_XBee_1_P2()" class="butXBee">D12</button></td>
+  </tr>
+  <tr>
+    <td><button id="men_XBee_1_D2" onclick="men_XBee_1_D2()" class="butXBee">D2</button></td>
+    <td><button id="men_XBee_1_D5" onclick="men_XBee_1_D5()" class="butXBee">D5</button></td>
+    <td><button id="men_XBee_1_P0" onclick="men_XBee_1_P0()" class="butXBee">D10</button></td>
+  </tr>
+  <tr>
+    <td><button id="men_XBee_PA1" onclick="men_XBee_PA1()" class="butXBee butXBeeProg">PA</button></td>
+    <td><button id="men_XBee_PA2" onclick="men_XBee_PA2()" class="butXBee butXBeeProg">PA OFF</button></td>
+  </tr>  
+</table>
+<p>
+<table>
+  <tr>
+	<td id="men_XBee_2" class="butXBee butXBeeTitel">XBee 2</td>
+  </tr>
+  <tr>
+    <td><button id="men_XBee_2_D0" onclick="men_XBee_2_D0()" class="butXBee">D0</button></td>
+	<td><button id="men_XBee_2_D3" onclick="men_XBee_2_D3()" class="butXBee">D3</button></td>
+    <td><button id="men_XBee_2_D6" onclick="men_XBee_2_D6()" class="butXBee">D6</button></td>
+    <td><button id="men_XBee_2_P1" onclick="men_XBee_2_P1()" class="butXBee">D11</button></td>
+  </tr>
+  <tr>
+    <td><button id="men_XBee_2_D1" onclick="men_XBee_2_D1()" class="butXBee">D1</button></td>
+    <td><button id="men_XBee_2_D4" onclick="men_XBee_2_D4()" class="butXBee">D4</button></td>
+    <td><button id="men_XBee_2_D7" onclick="men_XBee_2_D7()" class="butXBee">D7</button></td>
+    <td><button id="men_XBee_2_P2" onclick="men_XBee_2_P2()" class="butXBee">D12</button></td>
+  </tr>
+  <tr>
+    <td><button id="men_XBee_2_D2" onclick="men_XBee_2_D2()" class="butXBee">D2</button></td>
+    <td><button id="men_XBee_2_D5" onclick="men_XBee_2_D5()" class="butXBee">D5</button></td>
+    <td><button id="men_XBee_2_P0" onclick="men_XBee_2_P0()" class="butXBee">D10</button></td>
+  </tr>
+  <tr>
+    <td><button id="men_XBee_PB1" onclick="men_XBee_PB1()" class="butXBee butXBeeProg">PB</button></td>
+    <td><button id="men_XBee_PB2" onclick="men_XBee_PB2()" class="butXBee butXBeeProg">PB OFF</button></td>
+  </tr>
+</table>
+<p>
+<table>
+  <tr>
+	<td id="men_XBee_3" class="butXBee butXBeeTitel">XBee 3</td>
+  </tr>
+  <tr>
+    <td><button id="men_XBee_3_D0" onclick="men_XBee_3_D0()" class="butXBee">R 1</button></td>
+	<td><button id="men_XBee_3_D1" onclick="men_XBee_3_D1()" class="butXBee">R 2</button></td>
+	<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+	<td><button id="men_xbee_status" onclick="men_xbee_status()" class="butXBee butXBeeProg butSys">XBee Status</button></td>
+  </tr>
+</table>
+<p>
+<table>
+  <tr>
+	<td id="men_Data" class="butXBee butXBeeTitel">Data</td>
+  </tr>
+  <tr>
+    <td><button id="men_XBee_LOG" onclick="men_XBee_LOG()" class="butXBee">Logfile</button></td>
+	<td><button id="men_XBee_HOF" onclick="men_XBee_HOF()" class="butXBee">Hall of Fame</button></td>
+  </tr>
+</table>
+<p>
+<p id="server_interval" class="Status StatusConn">Server Interval: ?</p>
+
+<p>
+<p id="men_XBee_LOG_disp" class="Status"></p>
+<p id="men_XBee_HOF_disp" class="Status"></p>
+
+<table>
+  <tr>
+  </tr>
+</table>
+
+
+<p>
+<div id="DIVism">
+<table>
+  <tr>
+	<td class="butXBee butXBeeTitel">ISM</td>
+  </tr>
+  <tr>
+    <td><button id="ZiFDeckeON" onclick="ZiFDeckeON()" class="butISM">ON</button></td>
+    <td><button id="ZiFDekoON" onclick="ZiFDekoON()" class="butISM">ON</button></td>
+    <td><button id="ZiFSockON" onclick="ZiFSockON()" class="butISM">ON</button></td>
+    <td><button id="StuDekON" onclick="StuDekON()" class="butISM">ON</button></td>
+    <td><button id="StuSock1ON" onclick="StuSock1ON()" class="butISM">ON</button></td>
+   </tr>
+  <tr>
+    <td class="butISM butISM1">ZiF Decke</td>
+    <td class="butISM butISM1">ZiF Deko</td>
+    <td class="butISM butISM1">ZiF Alarm</td>
+    <td class="butISM butISM1">Stube Deko</td>
+    <td class="butISM butISM1">Stube Alarm</td>
+   </tr>
+  <tr>
+    <td><button id="ZiFDeckeOFF" onclick="ZiFDeckeOFF()" class="butISM">OFF</button></td>
+    <td><button id="ZiFDekoOFF" onclick="ZiFDekoOFF()" class="butISM">OFF</button></td>
+	<td><button id="ZiFSockOFF" onclick="ZiFSockOFF()" class="butISM">OFF</button></td>
+    <td><button id="StuDekOFF" onclick="StuDekOFF()" class="butISM">OFF</button></td>
+    <td><button id="StuSock1OFF" onclick="StuSock1OFF()" class="butISM">OFF</button></td>
+  </tr>
+  <tr>
+    <td><button id="GastereTX" onclick="GastereTX()" class="butISM">Gastere TX</button></td>
+  </tr>
+</table>
+</div>
+
+<p>
+<div id="DIVmarkise">
+<table border='0'>
+<colgroup width='120' span='5'></colgroup>
+  <tr>
+	<td class="butXBee butXBeeTitel">Modbus</td>
+  </tr>
+
+  <tr>
+    <td><button id="ZiLeerUP" onclick="ZiLeerUP()" class="butMarkise">UP</button></td>
+	<td><button id="ZiFUP" onclick="ZiFUP()" class="butMarkise">UP</button></td>
+    <td><button id="TerSudUP" onclick="TerSudUP()" class="butMarkise">UP</button></td>
+	<td><button id="TerNordUP" onclick="TerNordUP()" class="butMarkise">UP</button></td>
+  </tr>
+  <tr>
+	<td class="butMarkise butMarkise1">Zi leer</td>
+    <td class="butMarkise butMarkise1">Zi F</td>
+    <td class="butMarkise butMarkise1">Ter S&uumld</td>
+    <td class="butMarkise butMarkise1">Ter Nord</td>
+  </tr>
+  <tr>
+	<td><button id="ZiLeerDOWN" onclick="ZiLeerDOWN()" class="butMarkise">DOWN</button></td>
+	<td><button id="ZiFDOWN" onclick="ZiFDOWN()" class="butMarkise">DOWN</button></td>
+	<td><button id="TerSudDOWN" onclick="TerSudDOWN()" class="butMarkise">DOWN</button></td>
+	<td><button id="TerNordDOWN" onclick="TerNordDOWN()" class="butMarkise">DOWN</button></td>
+  </tr>
+</table>
+<p>
+
+<table border='0'>
+<colgroup width='120' span='5'></colgroup>
+  <tr>
+	<td><button id="PaLiUP" onclick="PaLiUP()" class="butMarkise">UP</button></td>
+	<td><button id="PaMiUP" onclick="PaMiUP()" class="butMarkise">UP</button></td>
+    <td><button id="PaRtUP" onclick="PaRtUP()" class="butMarkise">UP</button></td>
+    <td><button id="GastUP" onclick="GastUP()" class="butMarkise">UP</button></td>
+	<td><button id="SuedWENIG" onclick="SuedWENIG()" class="butMarkise">S&uumld WENIG</button></td>
+  </tr>
+  <tr>
+    <td class="butMarkise butMarkise1">Park links</td>
+    <td class="butMarkise butMarkise1">Park mitte</td>
+    <td class="butMarkise butMarkise1">Park rechts</td>
+    <td class="butMarkise butMarkise1">Gast</td>
+    <td class="butMarkise butMarkise1">Programme</td>
+  </tr>
+  <tr>
+	<td><button id="PaLiDOWN" onclick="PaLiDOWN()" class="butMarkise">DOWN</button></td>
+	<td><button id="PaMiDOWN" onclick="PaMiDOWN()" class="butMarkise">DOWN</button></td>
+    <td><button id="PaRtDOWN" onclick="PaRtDOWN()" class="butMarkise">DOWN</button></td>
+    <td><button id="GastDOWN" onclick="GastDOWN()" class="butMarkise">DOWN</button></td>
+  </tr>
+</table>
+<p>
+<table border='0'>
+	<colgroup width='600' span='1'></colgroup>
+	<tr>
+		<td><label for=ModFahrweg>Fahrweg [cm] </label>
+		<input type='range' id='ModFahrweg' class='ButYel' min='0' max='200' step='1' list='fahrpreset' value='0' oninput='outputUpdate(value)'>
+		<datalist id='fahrpreset'>
+		<option>20</option>
+		<option>50</option>
+		<option>100</option>
+		<option>150</option>
+		</datalist>
+		<output for=ModFahrweg id=fahrweg>0</output></td>
+	</tr>
+</table>
+<p>
+<div class="Status">
+<table border='0'>
+	<tr>
+		<td><p id="men_modbus_status_1">Modbus Stat 1: ?</p></td>
+		<td><p id="men_modbus_status_2">Modbus Stat 2: ?</p></td>
+		<td><p id="men_modbus_status_3">Modbus Stat 3: ?</p></td>
+		<td><p id="men_modbus_status_4">Modbus Stat 4: ?</p></td>
+	</tr>
+</table>
+</div>
+
+
+<p></p>
+
+<table>
+  <tr>
+    <td class="butXBee butXBeeTitel">MQTT 8266</td>
+	<td><p><input type="checkbox" id="men/rasp/but1" class="butXBee butXBeeProg"></p></td>
+    <td><button id="men_Rpi_LEDrt" onclick="men_Rpi_LEDrt()" class="butXBee">Rpi LED rot</button></td> 
+  </tr>
+</table>
+
+<p>
+<p><button id="men_users_connected" onclick="men_users_connected()" class="butXBee butXBeeProg butSys">Users</button></p>
+<p id="men_users_connected_disp" class="Status">message parag</p>
+<p id="rpi_ServerLocation" class="Status">rpi_ServerLocation: </p>
+<p id="rpi_UserURL" class="Status">rpi_UserURL: </p>
+<p id="men_xbee_pA_disp" class="Status">Xbee PA Disp: ?></p>
+<p id="men_xbee_pB_disp" class="Status">Xbee PB Disp: ?></p>
+<p id="men_xbee_status_disp" class="Status">Xbee Status: ?></p>
+</div>
+
+</body>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.3/socket.io.js"></script> <!-- include socket.io client side script -->
+<script>
+var socket = io(""); //load socket.io-client and connect to the host that serves the page
+
+// PAGE LOAD
+window.addEventListener("load", function(){ //when page loads
+  var ENIbox = document.getElementById("men/rasp/but1");
+  ENIbox.addEventListener("change", function() { //add event listener for when checkbox changes
+    socket.emit("men/rasp/but1", Number(this.checked)); //send button status to server (as 1 or 0)
+  });
+});
+
+///////////////////
+// SOCKET ON
+///////////////////
+socket.on("men/sys/ServerLocation", function(Data) {
+	// Titel und Bezeichnungen (standortabhängig) zuordnen
+	document.getElementById("men_Titel").innerHTML = Data[1];
+	document.getElementById("men_XBee_1").innerHTML = Data[2];
+	document.getElementById("men_XBee_2").innerHTML = Data[3];
+	document.getElementById("men_XBee_3").innerHTML = Data[4];
+
+	// Elemente (Markise, ISM usf.9 je nach STANDORT (RPI-Serienummer) ein- oder ausblenden
+	if (Data[0] == "MEN") {
+		document.getElementById("rpi_ServerLocation").innerHTML = "rpi_ServerLocation: " + Data;
+		document.getElementById("DIVmarkise").style.display = "block";
+		document.getElementById("DIVism").style.display = "block";
+		
+		document.getElementById("men_XBee_3_D0").innerHTML = Data[5];
+		document.getElementById("men_XBee_3_D1").innerHTML = Data[6];		
+	}
+	if (Data[0] == "OTHER") {
+		document.getElementById("rpi_ServerLocation").innerHTML = "rpi_ServerLocation: " + Data;
+		document.getElementById("DIVmarkise").style.display = "none";
+		document.getElementById("DIVism").style.display = "none";
+	}
+})
+socket.on("men/sys/UserURL", function(Data) {
+	// Elemente je nach USER (URL-Zusatz) ein- oder ausblenden
+	if (Data == "ADMIN") {
+		document.getElementById("rpi_UserURL").innerHTML = "rpi_UserURL: " + Data;
+		document.getElementById("DIVmarkise").style.display = "block";
+		document.getElementById("DIVism").style.display = "block";
+	}
+	if (Data == "OTHER") {
+		document.getElementById("rpi_UserURL").innerHTML = "rpi_UserURL: " + Data;
+		document.getElementById("DIVmarkise").style.display = "none";
+		document.getElementById("DIVism").style.display = "none";
+	}
+})
+
+socket.on("men/Server", function (Data) {
+	document.getElementById("server_interval").innerHTML = Data;
+});
+
+socket.on("men/Rpi/LEDrt", function(Data) {
+	document.getElementById("men_Rpi_LEDrt").style.backgroundColor = Data;
+})
+socket.on("men/rasp/but1", function (Data) { //get button status from client
+  document.getElementById("men/rasp/but1").checked = Data; //change checkbox according to push button on Raspberry Pi
+  socket.emit("men/rasp/but1", Data); //send push button status to back to server
+});
+
+socket.on("men/users/connected", function(Data) {
+	document.getElementById("men_users_connected_disp").innerHTML = Data;
+})
+socket.on("men/xbee/status", function (Data) {
+	document.getElementById("men_xbee_status_disp").innerHTML = "XBee Status: " + Data;
+});
+socket.on("men/xbee/pA_disp", function (Data) {
+	document.getElementById("men_xbee_pA_disp").innerHTML = "Xbee PA Disp: " + Data;
+});
+socket.on("men/xbee/pB_disp", function (Data) {
+	document.getElementById("men_xbee_pB_disp").innerHTML = "Xbee PB Disp: " + Data;
+});
+
+socket.on("men/modbus/status1", function (Data) {
+	document.getElementById("men_modbus_status_1").innerHTML = "Modbus Stat 1: " + Data;
+});
+
+socket.on("men/modbus/status2", function (Data) {
+	document.getElementById("men_modbus_status_2").innerHTML = "Modbus Stat 2: " + Data;
+});
+
+socket.on("men/modbus/status3", function (Data) {
+	document.getElementById("men_modbus_status_3").innerHTML = "Modbus Stat 3: " + Data;
+});
+
+socket.on("men/modbus/status4", function (Data) {
+	document.getElementById("men_modbus_status_4").innerHTML = "Modbus Stat 4: " + Data;
+});
+
+socket.on("men/XBee/LOG/disp", function (Data) {
+	document.getElementById("men_XBee_LOG_disp").innerHTML = Data;
+});
+socket.on("men/XBee/HOF/disp", function (Data) {
+	document.getElementById("men_XBee_HOF_disp").innerHTML = Data;
+});
+
+
+// SOCKET ON XBEE
+socket.on("men/XBee/1/D0", function(Data) {
+	if (Data[0] == 99) { document.getElementById("men_XBee_1_D0").style.backgroundColor = "#e6e6e6";
+	} else {
+		if (Data[0] == 5 || Data[0] == 1) { document.getElementById("men_XBee_1_D0").style.backgroundColor = Data[1];	
+		} else { document.getElementById("men_XBee_1_D0").style.backgroundColor = "#999999"; }
+	}
+})
+socket.on("men/XBee/1/D1", function(Data) {
+	if (Data[0] == 99) { document.getElementById("men_XBee_1_D1").style.backgroundColor = "#e6e6e6";
+	} else {
+		if (Data[0] == 5 || Data[0] == 1) { document.getElementById("men_XBee_1_D1").style.backgroundColor = Data[1];	
+		} else { document.getElementById("men_XBee_1_D1").style.backgroundColor = "#999999"; }
+	}
+})
+socket.on("men/XBee/1/D2", function(Data) {
+	if (Data[0] == 99) { document.getElementById("men_XBee_1_D2").style.backgroundColor = "#e6e6e6";
+	} else {
+		if (Data[0] == 5 || Data[0] == 1) { document.getElementById("men_XBee_1_D2").style.backgroundColor = Data[1];	
+		} else { document.getElementById("men_XBee_1_D2").style.backgroundColor = "#999999"; }
+	}
+})
+socket.on("men/XBee/1/D3", function(Data) {
+	if (Data[0] == 99) { document.getElementById("men_XBee_1_D3").style.backgroundColor = "#e6e6e6";
+	} else {
+		if (Data[0] == 5 || Data[0] == 1) { document.getElementById("men_XBee_1_D3").style.backgroundColor = Data[1];	
+		} else { document.getElementById("men_XBee_1_D3").style.backgroundColor = "#999999"; }
+	}
+})
+socket.on("men/XBee/1/D4", function(Data) {
+	if (Data[0] == 99) { document.getElementById("men_XBee_1_D4").style.backgroundColor = "#e6e6e6";
+	} else {
+		if (Data[0] == 5 || Data[0] == 1) { document.getElementById("men_XBee_1_D4").style.backgroundColor = Data[1];	
+		} else { document.getElementById("men_XBee_1_D4").style.backgroundColor = "#999999"; }
+	}
+})
+socket.on("men/XBee/1/D5", function(Data) {
+	if (Data[0] == 99) { document.getElementById("men_XBee_1_D5").style.backgroundColor = "#e6e6e6";
+	} else {
+		if (Data[0] == 5 || Data[0] == 1) { document.getElementById("men_XBee_1_D5").style.backgroundColor = Data[1];	
+		} else { document.getElementById("men_XBee_1_D5").style.backgroundColor = "#999999"; }
+	}
+})
+socket.on("men/XBee/1/D6", function(Data) {
+	if (Data[0] == 99) { document.getElementById("men_XBee_1_D6").style.backgroundColor = "#e6e6e6";
+	} else {
+		if (Data[0] == 5 || Data[0] == 1) { document.getElementById("men_XBee_1_D6").style.backgroundColor = Data[1];	
+		} else { document.getElementById("men_XBee_1_D6").style.backgroundColor = "#999999"; }
+	}
+})
+socket.on("men/XBee/1/D7", function(Data) {
+	if (Data[0] == 99) { document.getElementById("men_XBee_1_D7").style.backgroundColor = "#e6e6e6";
+	} else {
+		if (Data[0] == 5 || Data[0] == 1) { document.getElementById("men_XBee_1_D7").style.backgroundColor = Data[1];	
+		} else { document.getElementById("men_XBee_1_D7").style.backgroundColor = "#999999"; }
+	}
+})
+socket.on("men/XBee/1/P0", function(Data) {
+	if (Data[0] == 99) { document.getElementById("men_XBee_1_P0").style.backgroundColor = "#e6e6e6";
+	} else {
+		if (Data[0] == 5 || Data[0] == 1) { document.getElementById("men_XBee_1_P0").style.backgroundColor = Data[1];	
+		} else { document.getElementById("men_XBee_1_P0").style.backgroundColor = "#999999"; }
+	}
+})
+socket.on("men/XBee/1/P1", function(Data) {
+	if (Data[0] == 99) { document.getElementById("men_XBee_1_P1").style.backgroundColor = "#e6e6e6";
+	} else {
+		if (Data[0] == 5 || Data[0] == 1) { document.getElementById("men_XBee_1_P1").style.backgroundColor = Data[1];	
+		} else { document.getElementById("men_XBee_1_P1").style.backgroundColor = "#999999"; }
+	}
+})
+socket.on("men/XBee/1/P2", function(Data) {
+	if (Data[0] == 99) { document.getElementById("men_XBee_1_P2").style.backgroundColor = "#e6e6e6";
+	} else {
+		if (Data[0] == 5 || Data[0] == 1) { document.getElementById("men_XBee_1_P2").style.backgroundColor = Data[1];	
+		} else { document.getElementById("men_XBee_1_P2").style.backgroundColor = "#999999"; }
+	}
+})
+
+socket.on("men/XBee/2/D0", function(Data) {
+	if (Data[0] == 99) { document.getElementById("men_XBee_2_D0").style.backgroundColor = "#e6e6e6";
+	} else {
+		if (Data[0] == 5 || Data[0] == 1) { document.getElementById("men_XBee_2_D0").style.backgroundColor = Data[1];	
+		} else { document.getElementById("men_XBee_2_D0").style.backgroundColor = "#999999"; }
+	}
+})
+socket.on("men/XBee/2/D1", function(Data) {
+	if (Data[0] == 99) { document.getElementById("men_XBee_2_D1").style.backgroundColor = "#e6e6e6";
+	} else {
+		if (Data[0] == 5 || Data[0] == 1) { document.getElementById("men_XBee_2_D1").style.backgroundColor = Data[1];	
+		} else { document.getElementById("men_XBee_2_D1").style.backgroundColor = "#999999"; }
+	}
+})
+socket.on("men/XBee/2/D2", function(Data) {
+	if (Data[0] == 99) { document.getElementById("men_XBee_2_D2").style.backgroundColor = "#e6e6e6";
+	} else {
+		if (Data[0] == 5 || Data[0] == 1) { document.getElementById("men_XBee_2_D2").style.backgroundColor = Data[1];	
+		} else { document.getElementById("men_XBee_2_D2").style.backgroundColor = "#999999"; }
+	}
+})
+socket.on("men/XBee/2/D3", function(Data) {
+	if (Data[0] == 99) { document.getElementById("men_XBee_2_D3").style.backgroundColor = "#e6e6e6";
+	} else {
+		if (Data[0] == 5 || Data[0] == 1) { document.getElementById("men_XBee_2_D3").style.backgroundColor = Data[1];	
+		} else { document.getElementById("men_XBee_2_D3").style.backgroundColor = "#999999"; }
+	}
+})
+socket.on("men/XBee/2/D4", function(Data) {
+	if (Data[0] == 99) { document.getElementById("men_XBee_2_D4").style.backgroundColor = "#e6e6e6";
+	} else {
+		if (Data[0] == 5 || Data[0] == 1) { document.getElementById("men_XBee_2_D4").style.backgroundColor = Data[1];	
+		} else { document.getElementById("men_XBee_2_D4").style.backgroundColor = "#999999"; }
+	}
+})
+socket.on("men/XBee/2/D5", function(Data) {
+	if (Data[0] == 99) { document.getElementById("men_XBee_2_D5").style.backgroundColor = "#e6e6e6";
+	} else {
+		if (Data[0] == 5 || Data[0] == 1) { document.getElementById("men_XBee_2_D5").style.backgroundColor = Data[1];	
+		} else { document.getElementById("men_XBee_2_D5").style.backgroundColor = "#999999"; }
+	}
+})
+socket.on("men/XBee/2/D6", function(Data) {
+	if (Data[0] == 99) { document.getElementById("men_XBee_2_D6").style.backgroundColor = "#e6e6e6";
+	} else {
+		if (Data[0] == 5 || Data[0] == 1) { document.getElementById("men_XBee_2_D6").style.backgroundColor = Data[1];	
+		} else { document.getElementById("men_XBee_2_D6").style.backgroundColor = "#999999"; }
+	}
+})
+socket.on("men/XBee/2/D7", function(Data) {
+	if (Data[0] == 99) { document.getElementById("men_XBee_2_D7").style.backgroundColor = "#e6e6e6";
+	} else {
+		if (Data[0] == 5 || Data[0] == 1) { document.getElementById("men_XBee_2_D7").style.backgroundColor = Data[1];	
+		} else { document.getElementById("men_XBee_2_D7").style.backgroundColor = "#999999"; }
+	}
+})
+socket.on("men/XBee/2/P0", function(Data) {
+	if (Data[0] == 99) { document.getElementById("men_XBee_2_P0").style.backgroundColor = "#e6e6e6";
+	} else {
+		if (Data[0] == 5 || Data[0] == 1) { document.getElementById("men_XBee_2_P0").style.backgroundColor = Data[1];	
+		} else { document.getElementById("men_XBee_2_P0").style.backgroundColor = "#999999"; }
+	}
+})
+socket.on("men/XBee/2/P1", function(Data) {
+	if (Data[0] == 99) { document.getElementById("men_XBee_2_P1").style.backgroundColor = "#e6e6e6";
+	} else {
+		if (Data[0] == 5 || Data[0] == 1) { document.getElementById("men_XBee_2_P1").style.backgroundColor = Data[1];	
+		} else { document.getElementById("men_XBee_2_P1").style.backgroundColor = "#999999"; }
+	}
+})
+socket.on("men/XBee/2/P2", function(Data) {
+	if (Data[0] == 99) { document.getElementById("men_XBee_2_P2").style.backgroundColor = "#e6e6e6";
+	} else {
+		if (Data[0] == 5 || Data[0] == 1) { document.getElementById("men_XBee_2_P2").style.backgroundColor = Data[1];	
+		} else { document.getElementById("men_XBee_2_P2").style.backgroundColor = "#999999"; }
+	}
+})
+
+socket.on("men/XBee/3/D0", function(Data) {
+	if (Data[0] == 99) { document.getElementById("men_XBee_3_D0").style.backgroundColor = "#e6e6e6";
+	} else {
+		if (Data[0] == 4 || Data[0] == 0) { document.getElementById("men_XBee_3_D0").style.backgroundColor = Data[1];	
+		} else { document.getElementById("men_XBee_3_D0").style.backgroundColor = "#999999"; }
+	}
+})
+socket.on("men/XBee/3/D1", function(Data) {
+	if (Data[0] == 99) { document.getElementById("men_XBee_3_D1").style.backgroundColor = "#e6e6e6";
+	} else {
+		if (Data[0] == 4 || Data[0] == 0) { document.getElementById("men_XBee_3_D1").style.backgroundColor = Data[1];	
+		} else { document.getElementById("men_XBee_3_D1").style.backgroundColor = "#999999"; }
+	}
+})
+
+socket.on("men/XBee/PA1", function(Data) {
+	document.getElementById("men_XBee_PA1").style.backgroundColor = Data;
+})
+socket.on("men/XBee/PA2", function(Data) {
+	document.getElementById("men_XBee_PA2").style.backgroundColor = Data;
+})
+socket.on("men/XBee/PB1", function(Data) {
+	document.getElementById("men_XBee_PB1").style.backgroundColor = Data;
+})
+socket.on("men/XBee/PB2", function(Data) {
+	document.getElementById("men_XBee_PB2").style.backgroundColor = Data;
+})
+
+
+// SOCKET ON MODBUS
+socket.on("men/ZiLeerUP", function(Data) {
+	document.getElementById("ZiLeerUP").style.backgroundColor = Data;
+});
+socket.on("men/ZiLeerDOWN", function(Data) {
+	document.getElementById("ZiLeerDOWN").style.backgroundColor = Data;
+});
+
+socket.on("men/ZiFUP", function(Data) {
+	document.getElementById("ZiFUP").style.backgroundColor = Data;
+});
+socket.on("men/ZiFDOWN", function(Data) {
+	document.getElementById("ZiFDOWN").style.backgroundColor = Data;
+});
+
+socket.on("men/TerSudUP", function(Data) {
+	document.getElementById("TerSudUP").style.backgroundColor = Data;
+});
+socket.on("men/TerSudDOWN", function(Data) {
+	document.getElementById("TerSudDOWN").style.backgroundColor = Data;
+});
+
+socket.on("men/TerNordUP", function(Data) {
+	document.getElementById("TerNordUP").style.backgroundColor = Data;
+});
+socket.on("men/TerNordDOWN", function(Data) {
+	document.getElementById("TerNordDOWN").style.backgroundColor = Data;
+});
+
+socket.on("men/PaLiUP", function(Data) {
+	document.getElementById("PaLiUP").style.backgroundColor = Data;
+});
+socket.on("men/PaLiDOWN", function(Data) {
+	document.getElementById("PaLiDOWN").style.backgroundColor = Data;
+});
+
+socket.on("men/PaMiUP", function(Data) {
+	document.getElementById("PaMiUP").style.backgroundColor = Data;
+});
+socket.on("men/PaMiDOWN", function(Data) {
+	document.getElementById("PaMiDOWN").style.backgroundColor = Data;
+});
+
+socket.on("men/PaRtUP", function(Data) {
+	document.getElementById("PaRtUP").style.backgroundColor = Data;
+});
+socket.on("men/PaRtDOWN", function(Data) {
+	document.getElementById("PaRtDOWN").style.backgroundColor = Data;
+});
+
+socket.on("men/GastUP", function(Data) {
+	document.getElementById("GastUP").style.backgroundColor = Data;
+});
+socket.on("men/GastDOWN", function(Data) {
+	document.getElementById("GastDOWN").style.backgroundColor = Data;
+});
+
+socket.on("men/SuedWENIG", function(Data) {
+	document.getElementById("SuedWENIG").style.backgroundColor = Data;
+})
+
+
+// SOCKET ON ISM
+socket.on("men/ISM/ZiF/Decke/ON", function(Data) {
+	document.getElementById("ZiFDeckeON").style.backgroundColor = Data;
+});
+socket.on("men/ISM/ZiF/Decke/OFF", function(Data) {
+	document.getElementById("ZiFDeckeOFF").style.backgroundColor = Data;
+});
+
+socket.on("men/ISM/ZiF/Deko/ON", function(Data) {
+	document.getElementById("ZiFDekoON").style.backgroundColor = Data;
+});
+socket.on("men/ISM/ZiF/Deko/OFF", function(Data) {
+	document.getElementById("ZiFDekoOFF").style.backgroundColor = Data;
+});
+
+socket.on("men/ISM/ZiF/Sock/ON", function(Data) {
+	document.getElementById("ZiFSockON").style.backgroundColor = Data;
+});
+socket.on("men/ISM/ZiF/Sock/OFF", function(Data) {
+	document.getElementById("ZiFSockOFF").style.backgroundColor = Data;
+});
+
+socket.on("men/ISM/Stu/Deko/ON", function(Data) {
+	document.getElementById("StuDekON").style.backgroundColor = Data;
+});
+socket.on("men/ISM/Stu/Deko/OFF", function(Data) {
+	document.getElementById("StuDekOFF").style.backgroundColor = Data;
+});
+
+socket.on("men/ISM/Stu/Sock1/ON", function(Data) {
+	document.getElementById("StuSock1ON").style.backgroundColor = Data;
+});
+socket.on("men/ISM/Stu/Sock1/OFF", function(Data) {
+	document.getElementById("StuSock1OFF").style.backgroundColor = Data;
+});
+
+socket.on("men/ISM/GastereTX", function(Data) {
+	document.getElementById("GastereTX").style.backgroundColor = Data;
+});
+
+
+///////////////////
+// FUNCTIONS
+///////////////////
+function men_Rpi_LEDrt(){
+	socket.emit("men/Rpi/LEDrt");
+}
+
+function men_users_connected(){
+	socket.emit("men/users/connected");
+}
+
+function men_XBee_LOG(){
+	socket.emit("men/XBee/LOG");
+}
+function men_XBee_HOF(){
+	socket.emit("men/XBee/HOF");
+}
+	
+// FUNCTION XBEE
+function men_XBee_1_D0(){
+	socket.emit("men/XBee", [1, "DIO0", 1]);
+}
+function men_XBee_1_D1(){
+	socket.emit("men/XBee", [1, "DIO1", 1]);
+}
+function men_XBee_1_D2(){
+	socket.emit("men/XBee", [1, "DIO2", 1]);
+}
+function men_XBee_1_D3(){
+	socket.emit("men/XBee", [1, "DIO3", 1]);
+}
+function men_XBee_1_D4(){
+	socket.emit("men/XBee", [1, "DIO4", 1]);
+}
+function men_XBee_1_D5(){
+	socket.emit("men/XBee", [1, "DIO5", 1]);
+}
+function men_XBee_1_D6(){
+	socket.emit("men/XBee", [1, "DIO6", 1]);
+}
+function men_XBee_1_D7(){
+	socket.emit("men/XBee", [1, "DIO7", 1]);
+}
+function men_XBee_1_P0(){
+	socket.emit("men/XBee", [1, "DIO10", 1]);
+}
+function men_XBee_1_P1(){
+	socket.emit("men/XBee", [1, "DIO11", 1]);
+}
+function men_XBee_1_P2(){
+	socket.emit("men/XBee", [1, "DIO12", 1]);
+}
+
+function men_XBee_2_D0(){
+	socket.emit("men/XBee", ["2", "DIO0", 1]);
+}
+function men_XBee_2_D1(){
+	socket.emit("men/XBee", ["2", "DIO1", 1]);
+}
+function men_XBee_2_D2(){
+	socket.emit("men/XBee", ["2", "DIO2", 1]);
+}
+function men_XBee_2_D3(){
+	socket.emit("men/XBee", ["2", "DIO3", 1]);
+}
+function men_XBee_2_D4(){
+	socket.emit("men/XBee", ["2", "DIO4", 1]);
+}
+function men_XBee_2_D5(){
+	socket.emit("men/XBee", ["2", "DIO5", 1]);
+}
+function men_XBee_2_D6(){
+	socket.emit("men/XBee", ["2", "DIO6", 1]);
+}
+function men_XBee_2_D7(){
+	socket.emit("men/XBee", ["2", "DIO7", 1]);
+}
+function men_XBee_2_P0(){
+	socket.emit("men/XBee", ["2", "DIO10", 1]);
+}
+function men_XBee_2_P1(){
+	socket.emit("men/XBee", ["2", "DIO11", 1]);
+}
+function men_XBee_2_P2(){
+	socket.emit("men/XBee", ["2", "DIO12", 1]);
+}
+
+function men_XBee_3_D0(){
+	socket.emit("men/XBee", ["3", "DIO0", 1]);
+}
+function men_XBee_3_D1(){
+	socket.emit("men/XBee", ["3", "DIO1", 1]);
+}
+
+function men_xbee_status(){
+	socket.emit("men/Xbee/Status");
+}
+
+function men_XBee_PA1(){
+	socket.emit("men/XBee/progA", 11);
+}
+function men_XBee_PA2(){
+	socket.emit("men/XBee/progA", 12);
+}
+function men_XBee_PB1(){
+	socket.emit("men/XBee/progB", 21);
+}
+function men_XBee_PB2(){
+	socket.emit("men/XBee/progB", 22);
+}
+
+// FUNCTION MODBUS
+function ZiLeerUP(){
+	MarkiseData = ["men/ZiLeerUP", 13, 256, 0];
+	socket.emit("men/Markise", MarkiseData);
+}
+function ZiLeerDOWN(){
+	MarkiseData = ["men/ZiLeerDOWN", 13, 512, document.getElementById("ModFahrweg").value];
+	socket.emit("men/Markise", MarkiseData);
+}
+
+function ZiFUP(){
+	MarkiseData = ["men/ZiFUP", 13, 4, 0];
+	socket.emit("men/Markise", MarkiseData);
+}
+function ZiFDOWN(){
+	MarkiseData = ["men/ZiFDOWN", 13, 8, document.getElementById("ModFahrweg").value];
+	socket.emit("men/Markise", MarkiseData);
+}
+
+function TerSudUP(){
+	MarkiseData = ["men/TerSudUP", 13, 1, 0];
+	socket.emit("men/Markise", MarkiseData);
+}
+function TerSudDOWN(){
+	MarkiseData = ["men/TerSudDOWN", 13, 2, document.getElementById("ModFahrweg").value];
+	socket.emit("men/Markise", MarkiseData);
+}
+
+function TerNordUP(){
+	MarkiseData = ["men/TerNordUP", 13, 64, 0];
+	socket.emit("men/Markise", MarkiseData);
+}
+function TerNordDOWN(){
+	MarkiseData = ["men/TerNordDOWN", 13, 128, document.getElementById("ModFahrweg").value];
+	socket.emit("men/Markise", MarkiseData);
+}
+
+function PaLiUP(){
+	MarkiseData = ["men/PaLiUP", 13, 16, 0];
+	socket.emit("men/Markise", MarkiseData);
+}
+function PaLiDOWN(){
+	MarkiseData = ["men/PaLiDOWN", 13, 32, document.getElementById("ModFahrweg").value];
+	socket.emit("men/Markise", MarkiseData);
+}
+
+function PaMiUP(){
+	MarkiseData = ["men/PaMiUP", 13, 1024, 0];
+	socket.emit("men/Markise", MarkiseData);
+}
+function PaMiDOWN(){
+	MarkiseData = ["men/PaMiDOWN", 13, 2048, document.getElementById("ModFahrweg").value];
+	socket.emit("men/Markise", MarkiseData);
+}
+
+function PaRtUP(){
+	MarkiseData = ["men/PaRtUP", 13, 4096, 0];
+	socket.emit("men/Markise", MarkiseData);
+}
+function PaRtDOWN(){
+	MarkiseData = ["men/PaRtDOWN", 13, 8192, document.getElementById("ModFahrweg").value];
+	socket.emit("men/Markise", MarkiseData);
+}
+
+function GastUP(){
+	MarkiseData = ["men/GastUP", 13, 16384, 0];
+	socket.emit("men/Markise", MarkiseData);
+}
+function GastDOWN(){
+	MarkiseData = ["men/GastDOWN", 13, 32768, document.getElementById("ModFahrweg").value];
+	socket.emit("men/Markise", MarkiseData);
+}
+
+function SuedWENIG(){
+	MarkiseData = ["men/SuedWENIG"];
+	socket.emit("men/Markise", MarkiseData);
+}
+
+function outputUpdate(fw) {
+	document.querySelector('#fahrweg').value = fw;
+}
+
+// FUNCTION ISM
+function ZiFDeckeON() {
+	socket.emit("men/ISM", "ZiF/Decke/ON");
+}
+function ZiFDeckeOFF() {
+	socket.emit("men/ISM", "ZiF/Decke/OFF");
+}
+
+function ZiFDekoON() {
+	socket.emit("men/ISM", "ZiF/Deko/ON");
+}
+function ZiFDekoOFF() {
+	socket.emit("men/ISM", "ZiF/Deko/OFF");
+}
+
+function ZiFSockON() {
+	socket.emit("men/ISM", "ZiF/Sock/ON");
+}
+function ZiFSockOFF() {
+	socket.emit("men/ISM", "ZiF/Sock/OFF");
+}
+
+function StuDekON() {
+	socket.emit("men/ISM", "Stu/Deko/ON");
+}
+function StuDekOFF() {
+	socket.emit("men/ISM", "Stu/Deko/OFF");
+}
+
+function StuSock1ON() {
+	socket.emit("men/ISM", "Stu/Sock1/ON");
+}
+function StuSock1OFF() {
+	socket.emit("men/ISM", "Stu/Sock1/OFF");
+}
+
+function GastereTX() {
+	socket.emit("men/ISM", "GastereTX");
+}
+
+</script>
+
+</html>
